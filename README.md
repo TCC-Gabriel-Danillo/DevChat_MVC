@@ -18,7 +18,7 @@
 
 ### Configucação
 
-Adicione na pasta src/View o arquivo .env com as seguintes informações
+Adicione na pasta src o arquivo .env com as seguintes informações
 
 ```
 # GITHUB
@@ -43,7 +43,7 @@ APP_SCHEME=
 
 ### Executar
 
-Para executar o projeto, basta entrar na pasta src/View e executar o seguinte comando
+Para executar o projeto, basta entrar na pasta src e executar o seguinte comando
 
 ```
   expo start
