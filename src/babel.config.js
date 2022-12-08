@@ -7,7 +7,7 @@ module.exports = function (api) {
         "module-resolver",
         {
           alias: {
-            "@action": "./action",
+            "@reducer": "./reducer",
             "@store": "./store",
             "@view": "./view",
           },

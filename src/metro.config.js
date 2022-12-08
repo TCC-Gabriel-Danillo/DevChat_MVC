@@ -3,13 +3,13 @@ const path = require("path");
 const config = getDefaultConfig(__dirname);
 
 const storePath = __dirname + "/store";
-const actionPath = __dirname + "/action";
+const reducerPath = __dirname + "/reducer";
 const viewPath = __dirname + "/view";
 
 const extraNodeModules = {
   store: path.resolve(storePath),
   view: path.resolve(viewPath),
-  action: path.resolve(actionPath),
+  reducer: path.resolve(reducerPath),
 };
 
 config.watchFolders = Object.values(extraNodeModules);

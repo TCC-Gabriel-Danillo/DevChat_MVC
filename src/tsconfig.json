@@ -5,7 +5,7 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@action/*": ["action/*"],
+      "@reducer/*": ["reducer/*"],
       "@view/*": ["view/*"],
       "@store/*": ["store/*"]
     }
