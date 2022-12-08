@@ -10,6 +10,7 @@ module.exports = function (api) {
             "@reducer": "./reducer",
             "@store": "./store",
             "@view": "./view",
+            _assets: "./assets",
           },
         },
       ],

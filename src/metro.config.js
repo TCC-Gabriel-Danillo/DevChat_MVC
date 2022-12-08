@@ -5,11 +5,13 @@ const config = getDefaultConfig(__dirname);
 const storePath = __dirname + "/store";
 const reducerPath = __dirname + "/reducer";
 const viewPath = __dirname + "/view";
+const assetsPath = __dirname + "/assets";
 
 const extraNodeModules = {
   store: path.resolve(storePath),
   view: path.resolve(viewPath),
   reducer: path.resolve(reducerPath),
+  assets: path.resolve(assetsPath),
 };
 
 config.watchFolders = Object.values(extraNodeModules);
