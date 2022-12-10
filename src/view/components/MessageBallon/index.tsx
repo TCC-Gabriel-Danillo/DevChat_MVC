@@ -1,4 +1,4 @@
-import { Text } from "@view/components/Text";
+import { Text } from "_/view/components/Text";
 import { ICONS, TEST_ID } from "_/constants";
 import React from "react";
 import { View } from "react-native";

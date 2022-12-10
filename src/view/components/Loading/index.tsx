@@ -1,5 +1,5 @@
-import { Container, Text } from "@view/components";
-import loadingImg from "_assets/loading.png";
+import { Container, Text } from "_/view/components";
+import loadingImg from "_/assets/loading.png";
 import React from "react";
 import { Image } from "react-native";
 

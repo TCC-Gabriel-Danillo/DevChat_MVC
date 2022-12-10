@@ -1,4 +1,4 @@
-import { Text } from "@view/components/Text";
+import { Text } from "_/view/components/Text";
 import React from "react";
 import { View, ViewStyle } from "react-native";
 

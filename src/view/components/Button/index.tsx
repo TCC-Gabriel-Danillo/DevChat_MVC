@@ -1,4 +1,4 @@
-import { BaseComponent, UiType } from "@view/types";
+import { BaseComponent, UiType } from "_/view/types";
 import React, { ReactNode } from "react";
 import { TouchableOpacity, ViewStyle, View } from "react-native";
 

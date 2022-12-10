@@ -1,4 +1,4 @@
-import { BaseComponent } from "@view/types";
+import { BaseComponent } from "_/view/types";
 import React, { ReactNode } from "react";
 import { View, ViewStyle } from "react-native";
 
