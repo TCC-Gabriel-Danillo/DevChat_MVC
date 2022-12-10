@@ -1,4 +1,4 @@
-import { COLORS, ICONS, TEST_ID } from "@view/constants";
+import { COLORS, ICONS, TEST_ID } from "_/constants";
 import React from "react";
 import { useState } from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";

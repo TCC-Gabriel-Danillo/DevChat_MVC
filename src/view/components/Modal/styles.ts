@@ -1,4 +1,4 @@
-import { COLORS, SCREEN_HEIGHT, SCREEN_WIDTH } from "@view/constants";
+import { COLORS, SCREEN_HEIGHT, SCREEN_WIDTH } from "_/constants";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({

@@ -5,10 +5,7 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@reducer/*": ["reducer/*"],
-      "@view/*": ["view/*"],
-      "@store/*": ["store/*"],
-      "_assets/*": ["assets/*"]
+      "_/*": ["./*"]
     }
   }
 }

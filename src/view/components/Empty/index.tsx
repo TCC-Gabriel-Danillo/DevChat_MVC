@@ -1,4 +1,3 @@
-import { TEST_ID } from "@view/constants";
 import emptyImg from "_assets/empty.png";
 import React from "react";
 import { View, Image } from "react-native";
@@ -12,7 +11,7 @@ interface Props {
 
 export function Empty({ message = "Nada para ver por aqui." }: Props) {
   return (
-    <View style={styles.container} testID={TEST_ID.EMPTY_MESSAGE}>
+    <View style={styles.container}>
       <Image source={emptyImg} style={styles.image} />
       <Text style={styles.message}>{message}</Text>
     </View>

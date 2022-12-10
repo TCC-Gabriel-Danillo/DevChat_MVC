@@ -1,5 +1,5 @@
+import { COLORS } from "_/constants";
 import { StyleSheet } from "react-native";
-import { COLORS } from "@view/constants";
 
 export const styles = StyleSheet.create({
   button: {

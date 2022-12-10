@@ -1,5 +1,5 @@
 import { Text } from "@view/components/Text";
-import { ICONS, TEST_ID } from "@view/constants";
+import { ICONS, TEST_ID } from "_/constants";
 import React from "react";
 import { View } from "react-native";
 
