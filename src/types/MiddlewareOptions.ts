@@ -1,7 +1,8 @@
-import { AuthService } from "_/services/authService";
+import { UserService, AuthService } from "_/services";
 
 export type ThunkArgs = {
   authService: AuthService;
+  userService: UserService;
 };
 
 export type MiddlewareOptions = {
