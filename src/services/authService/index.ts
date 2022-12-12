@@ -2,8 +2,7 @@ import { HttpsAdapter } from "_/adapters";
 import { mapGitUserToUser } from "_/helpers/mapGitUserToUser";
 import { User, AuthCredentialType } from "_/types";
 
-import { GitRepositoryDto, GitTokenDto, GitUserDto } from "./dto";
-import { AuthServiceType } from "./types";
+import { GitRepositoryDto, GitTokenDto, GitUserDto, AuthServiceType } from "./types";
 
 export class AuthService implements AuthServiceType {
   constructor(private readonly gitAuthHttp: HttpsAdapter, private readonly gitApiHttp: HttpsAdapter) {}

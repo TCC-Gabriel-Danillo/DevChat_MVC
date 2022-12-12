@@ -15,7 +15,7 @@ const initialState: AuthState = {
 };
 
 export const authSlice = createSlice({
-  name: "http",
+  name: "auth",
   initialState,
   reducers: {
     authIsLoading: (state) => {

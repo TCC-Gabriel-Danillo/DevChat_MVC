@@ -1,8 +1,8 @@
-import { authenticateGithub } from "_/action";
+import { authenticateGithub, createOrUpdateUser } from "_/action";
 import chatImg from "_/assets/chat.png";
 import { COLORS, ICONS } from "_/constants";
 import { Button, Container, Text } from "_/view/components";
-import { useAuthPrompt, useHttpsSelector } from "_/view/hooks";
+import { useAuthPrompt, useAuthSelector } from "_/view/hooks";
 import { useAppDispatch } from "_/view/hooks/useAppDispatch";
 import React from "react";
 import { Image } from "react-native";
@@ -11,12 +11,15 @@ import { styles } from "./styles";
 
 export function AuthScreen() {
   const { promptAuth } = useAuthPrompt();
-  const { isLoading, isAuthenticated } = useHttpsSelector();
+  const { isLoading, isAuthenticated, user } = useAuthSelector();
   const dispatch = useAppDispatch();
 
   const signIn = async () => {
     const authCredentials = await promptAuth();
     dispatch(authenticateGithub(authCredentials));
+    if (user) {
+      dispatch(createOrUpdateUser(user));
+    }
     console.log(isAuthenticated);
   };
 
