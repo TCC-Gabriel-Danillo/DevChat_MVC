@@ -1,31 +1,23 @@
-import { postHttpsAction } from "_/action/httpsActions";
+import { authenticateGithub } from "_/action";
 import chatImg from "_/assets/chat.png";
-import { COLORS, GITHUB_URL, ICONS } from "_/constants";
+import { COLORS, ICONS } from "_/constants";
 import { Button, Container, Text } from "_/view/components";
 import { useAuthPrompt, useHttpsSelector } from "_/view/hooks";
+import { useAppDispatch } from "_/view/hooks/useAppDispatch";
 import React from "react";
 import { Image } from "react-native";
-import { useDispatch } from "react-redux";
 
 import { styles } from "./styles";
 
 export function AuthScreen() {
   const { promptAuth } = useAuthPrompt();
-  const { isLoading } = useHttpsSelector();
+  const { isLoading, isAuthenticated } = useHttpsSelector();
+  const dispatch = useAppDispatch();
 
-  const dispatch = useDispatch();
   const signIn = async () => {
     const authCredentials = await promptAuth();
-    await postHttpsAction(GITHUB_URL.AUTH_BASE_URL, {
-      endpoint: "/access_token",
-      data: authCredentials,
-      config: {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      },
-    })(dispatch);
+    dispatch(authenticateGithub(authCredentials));
+    console.log(isAuthenticated);
   };
 
   return (

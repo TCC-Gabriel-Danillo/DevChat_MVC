@@ -6,6 +6,7 @@ import {
   APP_SCHEME,
   GIT_CLIENT_SECRET,
 } from "_/constants";
+import { AuthCredentialType } from "_/types";
 import { makeRedirectUri, useAuthRequest } from "expo-auth-session";
 import * as WebBrowser from "expo-web-browser";
 
@@ -16,12 +17,6 @@ const discovery = {
   tokenEndpoint: GIT_TOKEN_ENDPOINT,
   revocationEndpoint: GIT_REVOCATION_ENDPOINT,
 };
-
-export interface AuthCredentialType {
-  code: string;
-  client_id: string;
-  client_secret: string;
-}
 
 export interface AuthPromptService {
   promptAuth: () => Promise<AuthCredentialType>;
