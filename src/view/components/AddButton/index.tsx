@@ -1,5 +1,5 @@
-import { Text } from "@view/components/Text";
-import { UiType } from "@view/types";
+import { Text } from "_/view/components/Text";
+import { UiType } from "_/view/types";
 import React from "react";
 import { TouchableOpacity, ViewStyle, TouchableOpacityProps } from "react-native";
 

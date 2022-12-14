@@ -1,5 +1,5 @@
-import { ICONS, TEST_ID, COLORS } from "@view/constants";
-// import { useAuth } from "@view/hooks";
+import { ICONS, TEST_ID, COLORS } from "_/constants";
+// import { useAuth } from "_/view/hooks";
 import React from "react";
 
 import { IconButton } from "../IconButton";

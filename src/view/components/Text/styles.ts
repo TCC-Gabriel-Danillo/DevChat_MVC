@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { FONT_BOLD, FONT_REGULAR, FONT_SEMIBOLD } from "@view/constants";
+import { FONT_BOLD, FONT_REGULAR, FONT_SEMIBOLD } from "_/constants";
 
 export const styles = StyleSheet.create({
   h1: {
