@@ -1,3 +1,4 @@
+import { firebaseApp } from "_/config/firabaseConfig";
 import {
   getFirestore,
   setDoc,
@@ -20,7 +21,7 @@ import {
 import { DatabaseType, ORDER, QueryOptions } from "./types";
 
 export class DatabaseAdapter implements DatabaseType {
-  private readonly firestore: Firestore = getFirestore();
+  private readonly firestore: Firestore = getFirestore(firebaseApp);
   private readonly collections: string[];
 
   constructor(...collections: string[]) {

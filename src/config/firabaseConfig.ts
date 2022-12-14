@@ -9,7 +9,7 @@ import {
 } from "_/constants";
 import { initializeApp } from "firebase/app";
 
-initializeApp({
+export const firebaseApp = initializeApp({
   apiKey: FIREBASE_API_KEY,
   authDomain: FIREBASE_AUTH_DOMAIN,
   projectId: FIREBASE_PROJECT_ID,

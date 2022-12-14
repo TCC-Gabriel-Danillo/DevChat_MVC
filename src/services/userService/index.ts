@@ -7,7 +7,7 @@ import { FirebaseUser, User } from "_/types";
 import { UserServiceType } from "./types";
 
 export class UserService implements UserServiceType {
-  constructor(private readonly userDatabaseRepository: DatabaseAdapter) {}
+  constructor(private readonly Database: DatabaseAdapter) {}
 
   async listUsersByTech(tech: string): Promise<User[]> {
     const filterArgs = {
@@ -15,12 +15,12 @@ export class UserService implements UserServiceType {
       op: OP.CONTAINS,
       value: tech,
     };
-    const fUsers = await this.userDatabaseRepository.getAll<FirebaseUser>({ filterArgs });
+    const fUsers = await this.Database.getAll<FirebaseUser>({ filterArgs });
     return fUsers.map((fUser) => mapFirebaseToUser(fUser));
   }
 
   async createUserIfNotExists(user: User) {
     const firebaseUser = mapUserToFirebaseUser(user);
-    await this.userDatabaseRepository.createOrReplace(firebaseUser, firebaseUser.id);
+    await this.Database.createOrReplace(firebaseUser, firebaseUser.id);
   }
 }
