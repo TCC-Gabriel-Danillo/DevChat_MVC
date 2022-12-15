@@ -1,6 +1,7 @@
-import { UserService, AuthService } from "_/services";
+import { UserService, AuthService, ConversationService } from "_/services";
 
 export type ThunkArgs = {
+  conversationService: ConversationService;
   authService: AuthService;
   userService: UserService;
 };
