@@ -3,3 +3,4 @@ export interface BaseComponent {
 }
 
 export type UiType = "primary" | "secondary";
+export * from "./NavOpts";
