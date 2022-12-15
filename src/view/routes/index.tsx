@@ -3,7 +3,6 @@ import React from "react";
 import { View } from "react-native";
 
 import { useAuthSelector } from "../hooks";
-import { AppRoute } from "./app";
 import { AuthRoute } from "./auth";
 
 export function Route() {
