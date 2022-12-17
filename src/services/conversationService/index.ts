@@ -29,7 +29,7 @@ export class ConversationService {
     await this.conversationDatabase.delete(conversation.id);
   }
 
-  listenConversationsByUserId(userId: string, cb: (data: Conversation) => Promise<void>): void {
+  listenConversationsByUserId(userId: string, cb: (data: Conversation[]) => Promise<void>): void {
     const filterArgs = {
       field: "users",
       op: OP.CONTAINS,
@@ -46,6 +46,10 @@ export class ConversationService {
     this.conversationRealtimeDatabase.watch<FirebaseConversation>(async (fConversations) => {
       const conversations = await Promise.all(
         fConversations.map((fconversation) => this.parseConversation(fconversation))
+      );
+      console.log(
+        "🚀 ~ file: index.ts:50 ~ ConversationService ~ this.conversationRealtimeDatabase.watch<FirebaseConversation> ~ conversations",
+        conversations
       );
       cb(conversations);
     }, args);
