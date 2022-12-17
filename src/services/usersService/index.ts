@@ -4,9 +4,9 @@ import { mapFirebaseToUser } from "_/helpers/mapFirebaseToUser";
 import { mapUserToFirebaseUser } from "_/helpers/mapUserToFirebaseUser";
 import { FirebaseUser, User } from "_/types";
 
-import { UserServiceType } from "./types";
+import { UsersServiceType } from "./types";
 
-export class UserService implements UserServiceType {
+export class UsersService implements UsersServiceType {
   constructor(private readonly Database: DatabaseAdapter) {}
 
   async listUsersByTech(tech: string): Promise<User[]> {
