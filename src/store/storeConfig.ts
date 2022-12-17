@@ -2,11 +2,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { HttpsAdapter, RealtimeDatabaseAdapter, DatabaseAdapter } from "_/adapters";
 import { DATABASE_COLLECTION, GITHUB_URL } from "_/constants";
-import { AuthService, UserService, ConversationService } from "_/services";
+import { AuthService, UsersService, ConversationService } from "_/services";
 import { MiddlewareOptions } from "_/types";
 import { persistStore, persistReducer } from "redux-persist";
 
-import { authReducer, conversationReducer, userReducer } from "./slices";
+import { authReducer, conversationReducer, usersReducer } from "./slices";
+import { MessageService } from "_/services/messageService";
 
 const persistConfig = {
   key: "root",
@@ -17,7 +18,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   conversation: conversationReducer,
   auth: authReducer,
-  user: userReducer,
+  users: usersReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -29,19 +30,25 @@ const userDatabase = new DatabaseAdapter(DATABASE_COLLECTION.USERS);
 const conversationDatabase = new DatabaseAdapter(DATABASE_COLLECTION.CONVERSATIONS);
 const conversationDatabaseRealTime = new RealtimeDatabaseAdapter(DATABASE_COLLECTION.CONVERSATIONS);
 
+const messageDatabase = new DatabaseAdapter(DATABASE_COLLECTION.MESSAGES);
+const messageRealTimeDatabase = new RealtimeDatabaseAdapter(DATABASE_COLLECTION.MESSAGES);
+const messageService = new MessageService(messageDatabase, messageRealTimeDatabase, userDatabase);
+
 const authService = new AuthService(gitAuthHttp, gitApiHttp);
-const userService = new UserService(userDatabase);
+const usersService = new UsersService(userDatabase);
 const conversationService = new ConversationService(conversationDatabase, userDatabase, conversationDatabaseRealTime);
 
 export const store = configureStore({
   reducer: persistedReducer,
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware<MiddlewareOptions>({
+      serializableCheck: false,
       thunk: {
         extraArgument: {
           conversationService,
           authService,
-          userService,
+          usersService,
+          messageService,
         },
       },
     });
