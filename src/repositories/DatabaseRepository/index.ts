@@ -20,7 +20,7 @@ import {
 
 import { DatabaseType, ORDER, QueryOptions } from "./types";
 
-export class DatabaseAdapter implements DatabaseType {
+export class DatabaseRepository implements DatabaseType {
   private readonly firestore: Firestore = getFirestore(firebaseApp);
   private readonly collections: string[];
 

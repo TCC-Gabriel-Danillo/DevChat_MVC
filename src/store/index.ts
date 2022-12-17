@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { HttpsAdapter } from "_/adapters";
-import { DatabaseAdapter } from "_/adapters/DatabaseAdapter";
+import { DatabaseRepository } from "_/repositories/DatabaseRepository";
 import { DATABASE_COLLECTION, GITHUB_URL } from "_/constants";
 import { UserService } from "_/services";
 import { AuthService } from "_/services/authService";
@@ -10,7 +10,7 @@ import { authReducer, userReducer } from "./slices";
 
 const gitAuthHttp = new HttpsAdapter(GITHUB_URL.AUTH_BASE_URL);
 const gitApiHttp = new HttpsAdapter(GITHUB_URL.API_BASE_URL);
-const database = new DatabaseAdapter(DATABASE_COLLECTION.USERS);
+const database = new DatabaseRepository(DATABASE_COLLECTION.USERS);
 
 const authService = new AuthService(gitAuthHttp, gitApiHttp);
 const userService = new UserService(database);
