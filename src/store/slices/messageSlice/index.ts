@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Message } from "_/types";
 
-export interface messageState {
+export interface MessageState {
   messages?: Message[];
   isLoadingMessages: boolean;
 }
 
-const initialState: messageState = {
+const initialState: MessageState = {
   messages: undefined,
   isLoadingMessages: false,
 };

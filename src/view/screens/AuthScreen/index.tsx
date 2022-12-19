@@ -15,7 +15,7 @@ export function AuthScreen() {
 
   const dispatch = useAppDispatch();
 
-  const signIn = async () => {
+  async function signIn() {
     const authCredentials = await promptAuth();
     if (authCredentials) {
       dispatch(authenticateGithub(authCredentials));
@@ -23,7 +23,7 @@ export function AuthScreen() {
     if (user) {
       dispatch(createOrUpdateUser(user));
     }
-  };
+  }
 
   return (
     <Container style={styles.container}>
