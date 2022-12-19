@@ -1,9 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { HttpsAdapter } from "_/adapters";
-import { RealtimeDatabaseRepository, DatabaseRepository } from "_/repositories";
-
 import { DATABASE_COLLECTION, GITHUB_URL } from "_/constants";
+import { RealtimeDatabaseRepository, DatabaseRepository } from "_/repositories";
 import { AuthService, UsersService, ConversationService } from "_/services";
 import { MessageService } from "_/services/messageService";
 import { MiddlewareOptions } from "_/types";
