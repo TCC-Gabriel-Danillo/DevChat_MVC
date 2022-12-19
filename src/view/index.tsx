@@ -6,7 +6,7 @@ import { Route } from "./routes";
 const Root = () => {
   const isLoaded = useCustomFonts();
 
-  if (!isLoaded) return;
+  if (!isLoaded) return <></>;
   return <Route />;
 };
 

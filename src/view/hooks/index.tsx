@@ -4,4 +4,5 @@ export * from "./useAppDispatch";
 export * from "./useCustomFonts";
 export * from "./useUsersSelector";
 export * from "./useMainRoute";
+export * from "./useMessageSelector";
 export * from "./useMainNavigation";

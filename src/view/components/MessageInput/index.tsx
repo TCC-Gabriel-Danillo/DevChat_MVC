@@ -1,12 +1,11 @@
 import { COLORS, ICONS, TEST_ID } from "_/constants";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";
 
 import styles from "./styles";
 
 interface Props {
-  onSendMessage: (message: string) => Promise<void>;
+  onSendMessage: (message: string) => void;
 }
 
 export function MessageInput({ onSendMessage }: Props) {
