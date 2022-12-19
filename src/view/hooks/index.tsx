@@ -6,3 +6,4 @@ export * from "./useUsersSelector";
 export * from "./useMainRoute";
 export * from "./useMessageSelector";
 export * from "./useMainNavigation";
+export * from "./useAlertSelector";
