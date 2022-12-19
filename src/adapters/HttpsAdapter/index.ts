@@ -18,7 +18,6 @@ export class HttpsAdapter implements HttpsAdapterType {
   get = async <T>(endpoint: string, config?: any, params?: Record<string, any>) => {
     try {
       const response = await this.api.get(endpoint, { ...config, params });
-      console.log("🚀 ~ file: index.ts:21 ~ HttpsAdapter ~ response", response);
       return response.data as T;
     } catch (error) {
       throw error;

@@ -1,4 +1,4 @@
-import { GitUserDto } from "_/services/authService/dto";
+import { GitUserDto } from "_/services/authService/types";
 import { User } from "_/types";
 
 export const mapGitUserToUser = (gitUser: GitUserDto, techs: string[]): User => {
