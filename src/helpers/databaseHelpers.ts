@@ -1,4 +1,4 @@
-import { ORDER, QueryOptions } from "_/adapters/DatabaseAdapter/types";
+import { ORDER, QueryOptions } from "_/repositories/DatabaseRepository/types";
 import {
   collection,
   CollectionReference,

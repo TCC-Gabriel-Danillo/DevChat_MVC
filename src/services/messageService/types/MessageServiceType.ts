@@ -1,4 +1,4 @@
-import { VoidCallback } from "_/adapters/RealtimeDatabaseAdapter/types";
+import { VoidCallback } from "_/repositories/RealtimeDatabaseRepository/types";
 import { Message } from "_/types";
 
 export interface MessageServiceType {
