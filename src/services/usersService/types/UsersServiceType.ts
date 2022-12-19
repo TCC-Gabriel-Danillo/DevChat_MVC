@@ -1,6 +1,6 @@
 import { User } from "_/types";
 
-export interface UserServiceType {
+export interface UsersServiceType {
   listUsersByTech: (tech: string) => Promise<User[]>;
   createUserIfNotExists: (user: User) => Promise<void>;
 }

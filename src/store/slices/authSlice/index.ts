@@ -24,12 +24,12 @@ export const authSlice = createSlice({
     authIsLoaded: (state) => {
       state.isLoading = false;
     },
-    addUser: (state, action: PayloadAction<User | undefined>) => {
+    authedUser: (state, action: PayloadAction<User | undefined>) => {
       state.user = action.payload;
       state.isAuthenticated = !!action.payload;
     },
   },
 });
 
-export const { authIsLoading, authIsLoaded, addUser } = authSlice.actions;
+export const { authIsLoading, authIsLoaded, authedUser } = authSlice.actions;
 export const { reducer: authReducer } = authSlice;

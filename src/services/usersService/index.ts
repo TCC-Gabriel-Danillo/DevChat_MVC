@@ -4,9 +4,9 @@ import { DatabaseRepository } from "_/repositories/DatabaseRepository";
 import { OP } from "_/repositories/DatabaseRepository/types";
 import { FirebaseUser, User } from "_/types";
 
-import { UserServiceType } from "./types";
+import { UsersServiceType } from "./types";
 
-export class UserService implements UserServiceType {
+export class UsersService implements UsersServiceType {
   constructor(private readonly Database: DatabaseRepository) {}
 
   async listUsersByTech(tech: string): Promise<User[]> {
