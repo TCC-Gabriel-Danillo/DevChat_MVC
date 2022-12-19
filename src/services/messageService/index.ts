@@ -1,21 +1,21 @@
-import { DatabaseAdapter, RealtimeDatabaseAdapter } from "_/adapters";
-import { ORDER } from "_/adapters/DatabaseAdapter/types";
-import { VoidCallback } from "_/adapters/RealtimeDatabaseAdapter/types";
 import {
   FirebaseMessage,
   mapFirebaseMessageToMessage,
   mapMessageToFirebaseMessage,
 } from "_/helpers/firebaseMessageHelper";
 import { mapFirebaseToUser } from "_/helpers/mapFirebaseToUser";
+import { DatabaseRepository, RealtimeDatabaseRepository } from "_/repositories";
+import { ORDER } from "_/repositories/DatabaseRepository/types";
+import { VoidCallback } from "_/repositories/RealtimeDatabaseRepository/types";
 import { FirebaseUser, Message, User } from "_/types";
 
 import { MessageServiceType } from "./types/MessageServiceType";
 
 export class MessageService implements MessageServiceType {
   constructor(
-    private readonly messageDatabaseRepository: DatabaseAdapter,
-    private readonly messageRealtimeDatabaseRepository: RealtimeDatabaseAdapter,
-    private readonly userDatabaseRepository: DatabaseAdapter
+    private readonly messageDatabaseRepository: DatabaseRepository,
+    private readonly messageRealtimeDatabaseRepository: RealtimeDatabaseRepository,
+    private readonly userDatabaseRepository: DatabaseRepository
   ) {}
 
   setCollectionMessageDB(...collections: string[]) {

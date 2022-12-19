@@ -1,7 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { HttpsAdapter, RealtimeDatabaseAdapter, DatabaseAdapter } from "_/adapters";
+import { HttpsAdapter } from "_/adapters";
 import { DATABASE_COLLECTION, GITHUB_URL } from "_/constants";
+import { RealtimeDatabaseRepository, DatabaseRepository } from "_/repositories";
 import { AuthService, UsersService, ConversationService } from "_/services";
 import { MessageService } from "_/services/messageService";
 import { MiddlewareOptions } from "_/types";
@@ -27,12 +28,12 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 const gitAuthHttp = new HttpsAdapter(GITHUB_URL.AUTH_BASE_URL);
 const gitApiHttp = new HttpsAdapter(GITHUB_URL.API_BASE_URL);
 
-const userDatabase = new DatabaseAdapter(DATABASE_COLLECTION.USERS);
-const conversationDatabase = new DatabaseAdapter(DATABASE_COLLECTION.CONVERSATIONS);
-const conversationDatabaseRealTime = new RealtimeDatabaseAdapter(DATABASE_COLLECTION.CONVERSATIONS);
+const userDatabase = new DatabaseRepository(DATABASE_COLLECTION.USERS);
+const conversationDatabase = new DatabaseRepository(DATABASE_COLLECTION.CONVERSATIONS);
+const conversationDatabaseRealTime = new RealtimeDatabaseRepository(DATABASE_COLLECTION.CONVERSATIONS);
 
-const messageDatabase = new DatabaseAdapter(DATABASE_COLLECTION.MESSAGES);
-const messageRealTimeDatabase = new RealtimeDatabaseAdapter(DATABASE_COLLECTION.MESSAGES);
+const messageDatabase = new DatabaseRepository(DATABASE_COLLECTION.MESSAGES);
+const messageRealTimeDatabase = new RealtimeDatabaseRepository(DATABASE_COLLECTION.MESSAGES);
 const messageService = new MessageService(messageDatabase, messageRealTimeDatabase, userDatabase);
 
 const authService = new AuthService(gitAuthHttp, gitApiHttp);

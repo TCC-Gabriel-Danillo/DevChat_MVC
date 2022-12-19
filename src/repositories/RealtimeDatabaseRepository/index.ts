@@ -3,10 +3,10 @@ import { firebaseApp } from "_/config/firabaseConfig";
 import { getRefFromArgs, parseCollection, parseFirebaseSnapshot } from "_/helpers/databaseHelpers";
 import { Firestore, getFirestore, onSnapshot } from "firebase/firestore";
 
-import { QueryOptions } from "../DatabaseAdapter/types";
+import { QueryOptions } from "../DatabaseRepository/types";
 import { RealtimeDatabaseType, VoidCallback } from "./types";
 
-export class RealtimeDatabaseAdapter implements RealtimeDatabaseType {
+export class RealtimeDatabaseRepository implements RealtimeDatabaseType {
   private unsubscribeFunction?: Unsubscribe;
 
   private readonly firestore: Firestore = getFirestore(firebaseApp);

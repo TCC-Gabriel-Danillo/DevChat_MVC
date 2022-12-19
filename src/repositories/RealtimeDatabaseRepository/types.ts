@@ -1,4 +1,4 @@
-import { QueryOptions } from "../DatabaseAdapter/types";
+import { QueryOptions } from "../DatabaseRepository/types";
 
 export type VoidCallback<T> = (data: T[]) => void;
 
