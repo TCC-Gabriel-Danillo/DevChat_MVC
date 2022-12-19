@@ -8,7 +8,7 @@ import { MessageService } from "_/services/messageService";
 import { MiddlewareOptions } from "_/types";
 import { persistStore, persistReducer } from "redux-persist";
 
-import { authReducer, conversationReducer, usersReducer, messageReducer } from "./slices";
+import { authReducer, conversationReducer, usersReducer, messageReducer, alertReducer } from "./slices";
 
 const persistConfig = {
   key: "root",
@@ -21,6 +21,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   users: usersReducer,
   message: messageReducer,
+  alert: alertReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

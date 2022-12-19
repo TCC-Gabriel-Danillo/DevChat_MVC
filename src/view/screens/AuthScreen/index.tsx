@@ -15,13 +15,15 @@ export function AuthScreen() {
 
   const dispatch = useAppDispatch();
 
-  const signIn = async () => {
+  async function signIn() {
     const authCredentials = await promptAuth();
-    dispatch(authenticateGithub(authCredentials));
+    if (authCredentials) {
+      dispatch(authenticateGithub(authCredentials));
+    }
     if (user) {
       dispatch(createOrUpdateUser(user));
     }
-  };
+  }
 
   return (
     <Container style={styles.container}>

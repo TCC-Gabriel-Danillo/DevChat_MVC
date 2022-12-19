@@ -1,5 +1,6 @@
-import axios, { AxiosInstance } from "axios";
+import axios, { AxiosError, AxiosInstance } from "axios";
 
+import { ErrorFromRes, ServerError } from "./errors";
 import { HttpsAdapterType } from "./types";
 
 const headers = {
@@ -20,7 +21,8 @@ export class HttpsAdapter implements HttpsAdapterType {
       const response = await this.api.get(endpoint, { ...config, params });
       return response.data as T;
     } catch (error) {
-      throw error;
+      if (error instanceof AxiosError) throw this.handleAxiosError(error);
+      throw new ServerError();
     }
   };
 
@@ -29,7 +31,15 @@ export class HttpsAdapter implements HttpsAdapterType {
       const response = await this.api.post(endpoint, data, { ...config });
       return response.data as T;
     } catch (error) {
-      throw error;
+      if (error instanceof AxiosError) throw this.handleAxiosError(error);
+      throw new ServerError();
     }
   };
+
+  private handleAxiosError(error: AxiosError<any, any>) {
+    const { status, message } = error;
+    const errorFromRes = ErrorFromRes(status, message);
+    if (errorFromRes) return errorFromRes;
+    return new ServerError(message);
+  }
 }
