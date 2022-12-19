@@ -11,7 +11,7 @@ import { styles } from "./styles";
 
 export function AuthScreen() {
   const { promptAuth } = useAuthPrompt();
-  const { isAuthenticated, user } = useAuthSelector();
+  const { user } = useAuthSelector();
 
   const dispatch = useAppDispatch();
 
@@ -21,7 +21,6 @@ export function AuthScreen() {
     if (user) {
       dispatch(createOrUpdateUser(user));
     }
-    console.log(isAuthenticated);
   };
 
   return (
