@@ -1,5 +1,5 @@
 import { AnyAction, ThunkAction } from "@reduxjs/toolkit";
-import { RootState } from "_/store";
+import { RootState } from "_/store/storeConfig";
 
 import { ThunkArgs } from "./middlewareOptions";
 
