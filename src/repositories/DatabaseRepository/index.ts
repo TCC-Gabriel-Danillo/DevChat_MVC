@@ -4,7 +4,7 @@ import { getFirestore, setDoc, doc, Firestore, getDocs, updateDoc, deleteDoc, ge
 
 import { DatabaseType, QueryOptions } from "./types";
 
-export class DatabaseAdapter implements DatabaseType {
+export class DatabaseRepository implements DatabaseType {
   private readonly firestore: Firestore = getFirestore(firebaseApp);
   private collections: string[];
 

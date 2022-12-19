@@ -1,13 +1,13 @@
-import { DatabaseAdapter } from "_/adapters/DatabaseAdapter";
-import { OP } from "_/adapters/DatabaseAdapter/types";
 import { mapFirebaseToUser } from "_/helpers/mapFirebaseToUser";
 import { mapUserToFirebaseUser } from "_/helpers/mapUserToFirebaseUser";
+import { DatabaseRepository } from "_/repositories/DatabaseRepository";
+import { OP } from "_/repositories/DatabaseRepository/types";
 import { FirebaseUser, User } from "_/types";
 
 import { UsersServiceType } from "./types";
 
 export class UsersService implements UsersServiceType {
-  constructor(private readonly Database: DatabaseAdapter) {}
+  constructor(private readonly Database: DatabaseRepository) {}
 
   async listUsersByTech(tech: string): Promise<User[]> {
     const filterArgs = {
