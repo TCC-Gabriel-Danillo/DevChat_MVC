@@ -3,11 +3,11 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { HttpsAdapter, RealtimeDatabaseAdapter, DatabaseAdapter } from "_/adapters";
 import { DATABASE_COLLECTION, GITHUB_URL } from "_/constants";
 import { AuthService, UsersService, ConversationService } from "_/services";
+import { MessageService } from "_/services/messageService";
 import { MiddlewareOptions } from "_/types";
 import { persistStore, persistReducer } from "redux-persist";
 
-import { authReducer, conversationReducer, usersReducer } from "./slices";
-import { MessageService } from "_/services/messageService";
+import { authReducer, conversationReducer, usersReducer, messageReducer } from "./slices";
 
 const persistConfig = {
   key: "root",
@@ -19,6 +19,7 @@ const rootReducer = combineReducers({
   conversation: conversationReducer,
   auth: authReducer,
   users: usersReducer,
+  message: messageReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

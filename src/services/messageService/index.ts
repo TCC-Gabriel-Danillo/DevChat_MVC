@@ -18,6 +18,18 @@ export class MessageService implements MessageServiceType {
     private readonly userDatabaseRepository: DatabaseAdapter
   ) {}
 
+  setCollectionMessageDB(...collections: string[]) {
+    this.messageDatabaseRepository.setCollections(...collections);
+  }
+
+  setCollectionUserDB(...collections: string[]) {
+    this.userDatabaseRepository.setCollections(...collections);
+  }
+
+  setCollectionMessageDBRealTime(...collections: string[]) {
+    this.messageRealtimeDatabaseRepository.setCollections(...collections);
+  }
+
   async sendMessage(message: Message): Promise<void> {
     const fMessage = mapMessageToFirebaseMessage(message);
     await this.messageDatabaseRepository.createOrReplace(fMessage, fMessage.id);
@@ -40,6 +52,7 @@ export class MessageService implements MessageServiceType {
       cb(messages);
     }, args);
   }
+
   unlistenMessages(): void {
     this.messageRealtimeDatabaseRepository.unwatch();
   }

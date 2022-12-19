@@ -47,10 +47,6 @@ export class ConversationService {
       const conversations = await Promise.all(
         fConversations.map((fconversation) => this.parseConversation(fconversation))
       );
-      console.log(
-        "🚀 ~ file: index.ts:50 ~ ConversationService ~ this.conversationRealtimeDatabase.watch<FirebaseConversation> ~ conversations",
-        conversations
-      );
       cb(conversations);
     }, args);
   }

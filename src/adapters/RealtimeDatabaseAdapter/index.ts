@@ -10,9 +10,13 @@ export class RealtimeDatabaseAdapter implements RealtimeDatabaseType {
   private unsubscribeFunction?: Unsubscribe;
 
   private readonly firestore: Firestore = getFirestore(firebaseApp);
-  private readonly collections: string[];
+  private collections: string[];
 
   constructor(...collections: string[]) {
+    this.collections = collections;
+  }
+
+  setCollections(...collections: string[]) {
     this.collections = collections;
   }
 

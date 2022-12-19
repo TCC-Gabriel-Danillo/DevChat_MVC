@@ -6,9 +6,13 @@ import { DatabaseType, QueryOptions } from "./types";
 
 export class DatabaseAdapter implements DatabaseType {
   private readonly firestore: Firestore = getFirestore(firebaseApp);
-  private readonly collections: string[];
+  private collections: string[];
 
   constructor(...collections: string[]) {
+    this.collections = collections;
+  }
+
+  setCollections(...collections: string[]) {
     this.collections = collections;
   }
 

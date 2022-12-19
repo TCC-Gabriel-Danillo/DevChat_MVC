@@ -28,4 +28,4 @@ export const MessageSlice = createSlice({
 });
 
 export const { loadingMessages, loadedMessages, setMessages } = MessageSlice.actions;
-export const { reducer: MessageReducer } = MessageSlice;
+export const { reducer: messageReducer } = MessageSlice;

@@ -3,14 +3,16 @@ import { Conversation } from "_/types";
 
 export interface ConversationState {
   conversations?: Conversation[];
+  conversation?: Conversation;
   isLoadingConversations: boolean;
-  sigleConversation?: Conversation;
+  singleConversation?: Conversation;
 }
 
 const initialState: ConversationState = {
   conversations: undefined,
+  conversation: undefined,
   isLoadingConversations: false,
-  sigleConversation: undefined,
+  singleConversation: undefined,
 };
 
 export const conversationSlice = createSlice({
@@ -23,8 +25,8 @@ export const conversationSlice = createSlice({
     loadedConversations: (state) => {
       state.isLoadingConversations = false;
     },
-    sigleConversation: (state, action: PayloadAction<Conversation | undefined>) => {
-      state.sigleConversation = action.payload;
+    singleConversation: (state, action: PayloadAction<Conversation | undefined>) => {
+      state.conversation = action.payload;
     },
     conversations: (state, action: PayloadAction<Conversation[] | undefined>) => {
       state.conversations = action.payload;
@@ -32,6 +34,6 @@ export const conversationSlice = createSlice({
   },
 });
 
-export const { loadingConversations, loadedConversations, sigleConversation, conversations } =
+export const { loadingConversations, loadedConversations, singleConversation, conversations } =
   conversationSlice.actions;
 export const { reducer: conversationReducer } = conversationSlice;

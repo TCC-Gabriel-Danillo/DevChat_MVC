@@ -1,6 +1,11 @@
 import { uuidv4 } from "@firebase/util";
 import { Dispatch } from "@reduxjs/toolkit";
-import { loadingConversations, conversations, sigleConversation, loadedConversations } from "_/store/slices";
+import {
+  loadingConversations,
+  conversations,
+  singleConversation,
+  loadedConversations,
+} from "_/store/slices/conversationSlice";
 import { AppThunk, Conversation, User } from "_/types";
 
 export const listenConversation = (): AppThunk => {
@@ -29,6 +34,12 @@ export const updateConversationInfo = (newConversation: Conversation): AppThunk 
   };
 };
 
+export const setSingleConversation = (newConversation: Conversation): AppThunk => {
+  return async (dispatch: Dispatch, _1) => {
+    dispatch(singleConversation(newConversation));
+  };
+};
+
 export const createNewConversation = (users: User[], tech: string): AppThunk => {
   return async (dispatch, _, { conversationService }) => {
     const silgeMessage: Conversation = {
@@ -41,7 +52,7 @@ export const createNewConversation = (users: User[], tech: string): AppThunk => 
       lastSenderId: "",
     };
 
-    await conversationService.updateConversationById(silgeMessage);
-    dispatch(sigleConversation(silgeMessage));
+    await conversationService.createConversation(silgeMessage);
+    dispatch(singleConversation(silgeMessage));
   };
 };
