@@ -4,7 +4,7 @@ import { COLORS, ICONS } from "_/constants";
 import { Button, Container, Text } from "_/view/components";
 import { useAuthPrompt, useAuthSelector } from "_/view/hooks";
 import { useAppDispatch } from "_/view/hooks/useAppDispatch";
-import React from "react";
+import React, { useEffect } from "react";
 import { Image } from "react-native";
 
 import { styles } from "./styles";
@@ -15,13 +15,16 @@ export function AuthScreen() {
 
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    if (user) {
+      dispatch(createOrUpdateUser(user));
+    }
+  }, [user]);
+
   async function signIn() {
     const authCredentials = await promptAuth();
     if (authCredentials) {
       dispatch(authenticateGithub(authCredentials));
-    }
-    if (user) {
-      dispatch(createOrUpdateUser(user));
     }
   }
 

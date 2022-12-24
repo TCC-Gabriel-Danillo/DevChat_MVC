@@ -1,6 +1,7 @@
-import { MAIN_SCREENS, MAIN_SCREEN_ARGS } from "_/constants";
+import { AUTH_SCREENS, MAIN_SCREENS, MAIN_SCREEN_ARGS } from "_/constants";
 
 export type NavOpts = {
+  [AUTH_SCREENS.AUTH_SCREEN]: undefined;
   [MAIN_SCREENS.HOME_SCREEN]: undefined;
   [MAIN_SCREENS.TECH_SCREEN]: undefined;
   [MAIN_SCREENS.USERS_SCREEN]: MAIN_SCREEN_ARGS[MAIN_SCREENS.USERS_SCREEN];
