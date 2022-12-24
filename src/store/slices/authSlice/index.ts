@@ -28,8 +28,12 @@ export const authSlice = createSlice({
       state.user = action.payload;
       state.isAuthenticated = !!action.payload;
     },
+    removeUser: (state) => {
+      state.user = undefined;
+      state.isAuthenticated = false;
+    },
   },
 });
 
-export const { authIsLoading, authIsLoaded, authedUser } = authSlice.actions;
+export const { authIsLoading, authIsLoaded, authedUser, removeUser } = authSlice.actions;
 export const { reducer: authReducer } = authSlice;

@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { COLORS, MAIN_SCREENS } from "_/constants";
 import { Conversation } from "_/types";
+import { LogoutButton } from "_/view/components";
 import { HomeScreen } from "_/view/screens/HomeScreen";
 import { MessageScreen } from "_/view/screens/MessagesScreen";
 import { TechScreen } from "_/view/screens/TechsScreen";
@@ -12,7 +13,7 @@ export const mainOptions = {
     backgroundColor: COLORS.PRIMARY,
   },
   headerTintColor: COLORS.WHITE,
-  // headerRight: () => {},
+  headerRight: LogoutButton,
 };
 
 const Stack = createNativeStackNavigator();
