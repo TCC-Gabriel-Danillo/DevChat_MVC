@@ -1,6 +1,6 @@
 import { VoidCallback } from "_/repositories/RealtimeDatabaseRepository/types";
 import { MessageServiceType } from "_/services/messageService/types/MessageServiceType";
-import { Message, User } from "_/types";
+import { Message } from "_/types";
 
 export class MessageServiceStub implements MessageServiceType {
   sendMessage(message: Message): Promise<void> {

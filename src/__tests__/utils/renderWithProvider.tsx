@@ -19,19 +19,23 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
 }
 
 export function renderWithProviders(
-  ui: React.ReactElement,
+  ui: JSX.Element,
   {
-    preloadedState = {},
+    preloadedState,
     // Automatically create a store instance if no store was passed in
-    store = setupStore({
+    ...renderOptions
+  }: ExtendedRenderOptions = {}
+) {
+  const store = setupStore(
+    {
       authService: new AuthServiceStub(),
       usersService: new UsersServiceStub(),
       conversationService: new ConversationServiceStub(),
       messageService: new MessageServiceStub(),
-    }),
-    ...renderOptions
-  }: ExtendedRenderOptions = {}
-) {
+    },
+    preloadedState
+  );
+
   function Wrapper({ children }: PropsWithChildren<object>): JSX.Element {
     return <Provider store={store}>{children}</Provider>;
   }

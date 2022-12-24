@@ -1,14 +1,18 @@
-jest.mock("@react-native-async-storage/async-storage", () =>
-  require("@react-native-async-storage/async-storage/jest/async-storage-mock")
-);
-
-jest.mock("../hooks/useAuthPrompt", () => ({
-  useAuthPrompt: () => ({
-    promptAuth: async () =>
-      Promise.resolve({
-        code: "1234",
-        client_id: "client_id",
-        client_secret: "client_secret",
-      }),
-  }),
-}));
+import "../__mocks__/async-storage";
+import "../__mocks__/useAuthPrompt";
+import "../__mocks__/redux-persist";
+import "../__mocks__/react-navigation";
+import "../__mocks__/firebase-utils";
+jest
+  .useFakeTimers({
+    doNotFake: [
+      "nextTick",
+      "setImmediate",
+      "clearImmediate",
+      "setInterval",
+      "clearInterval",
+      "setTimeout",
+      "clearTimeout",
+    ],
+  })
+  .setSystemTime(new Date());
