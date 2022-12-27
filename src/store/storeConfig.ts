@@ -45,15 +45,16 @@ const authService = new AuthService(gitAuthHttp, gitApiHttp);
 const usersService = new UsersService(userDatabase);
 const conversationService = new ConversationService(conversationDatabase, userDatabase, conversationDatabaseRealTime);
 
-interface Options {
+export interface Options {
   conversationService: ConversationServiceType;
   authService: AuthServiceType;
   usersService: UsersServiceType;
   messageService: MessageServiceType;
 }
 
-export const setupStore = (options: Options) => {
+export const setupStore = (options: Options, preloadedState?: any) => {
   return configureStore({
+    preloadedState,
     reducer: persistedReducer,
     middleware(getDefaultMiddleware) {
       return getDefaultMiddleware<MiddlewareOptions>({

@@ -6,10 +6,10 @@ import type { AppStore, RootState } from "_/store/storeConfig";
 import React, { PropsWithChildren } from "react";
 import { Provider } from "react-redux";
 
-import { AuthServiceStub } from "../mocks/authServiceStub";
-import { ConversationServiceStub } from "../mocks/conversationServiceStub";
-import { MessageServiceStub } from "../mocks/messageServiceStub";
-import { UsersServiceStub } from "../mocks/usersServiceStub";
+import { authServiceStub } from "../mocks/authService.stub";
+import { conversationServiceStub } from "../mocks/conversationService.stub";
+import { messageServiceStub } from "../mocks/messageService.stub";
+import { usersServiceStub } from "../mocks/usersService.stub";
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
@@ -28,10 +28,10 @@ export function renderWithProviders(
 ) {
   const store = setupStore(
     {
-      authService: new AuthServiceStub(),
-      usersService: new UsersServiceStub(),
-      conversationService: new ConversationServiceStub(),
-      messageService: new MessageServiceStub(),
+      authService: authServiceStub,
+      usersService: usersServiceStub,
+      conversationService: conversationServiceStub,
+      messageService: messageServiceStub,
     },
     preloadedState
   );
