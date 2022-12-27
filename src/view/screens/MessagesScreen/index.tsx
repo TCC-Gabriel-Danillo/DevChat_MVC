@@ -13,7 +13,7 @@ type MessageScreenTypes = {
   conversation: Conversation;
 };
 
-export function MessageScreen({ conversation }: MessageScreenTypes) {
+export function MessagesScreen({ conversation }: MessageScreenTypes) {
   const dispatch = useAppDispatch();
 
   useEffect(() => {

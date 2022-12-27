@@ -12,6 +12,8 @@ import styles from "./styles";
 
 export function UsersScreen() {
   const dispatch = useAppDispatch();
+  const { params } = useMainRoute<MAIN_SCREENS.USERS_SCREEN>();
+  const { user: authenticatedUsed } = useAuthSelector();
 
   useEffect(() => {
     if (authenticatedUsed) dispatch(getUsersByTech(params.tech));
@@ -19,11 +21,9 @@ export function UsersScreen() {
 
   const { isLoadingUsers, users } = useUsersSelector();
   const { singleConversation: conversation } = useConversationSelector();
-  const { params } = useMainRoute<MAIN_SCREENS.USERS_SCREEN>();
   const navigation = useMainNavigation();
 
   const { conversations } = useConversationSelector();
-  const { user: authenticatedUsed } = useAuthSelector();
 
   const renderUserList = () => {
     return (

@@ -3,7 +3,7 @@ import { COLORS, MAIN_SCREENS } from "_/constants";
 import { Conversation } from "_/types";
 import { LogoutButton } from "_/view/components";
 import { HomeScreen } from "_/view/screens/HomeScreen";
-import { MessageScreen } from "_/view/screens/MessagesScreen";
+import { MessagesScreen } from "_/view/screens/MessagesScreen";
 import { TechScreen } from "_/view/screens/TechsScreen";
 import { UsersScreen } from "_/view/screens/UsersScreen";
 import React from "react";
@@ -31,7 +31,7 @@ export function AppRoute() {
         })}>
         {({ route }) => {
           const conversation = route?.params?.conversation as Conversation;
-          return <MessageScreen conversation={conversation} />;
+          return <MessagesScreen conversation={conversation} />;
         }}
       </Stack.Screen>
     </Stack.Navigator>
