@@ -2,8 +2,8 @@ import { act, fireEvent } from "@testing-library/react-native";
 import { AuthScreen } from "_/view/screens";
 import React from "react";
 
-import { userMock } from "../mocks/authServiceStub";
-import { createUserIfNotExistsMock } from "../mocks/usersServiceStub";
+import { authServiceStub, userMock } from "../mocks/authService.stub";
+import { usersServiceStub } from "../mocks/usersService.stub";
 import { renderWithProviders } from "../utils/renderWithProvider";
 
 beforeEach(() => {
@@ -24,6 +24,7 @@ describe("AuthScreen", () => {
     const { user } = auth;
 
     expect(user).toBe(userMock);
+    expect(authServiceStub.authenticateGithub).toBeCalled();
   });
 
   it("Deve criar usuário que não existe ", async () => {
@@ -35,6 +36,6 @@ describe("AuthScreen", () => {
       fireEvent.press(button);
     });
 
-    expect(createUserIfNotExistsMock).toBeCalledWith(userMock);
+    expect(usersServiceStub.createUserIfNotExists).toBeCalledWith(userMock);
   });
 });
