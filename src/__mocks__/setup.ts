@@ -1,8 +1,8 @@
-import "../__mocks__/async-storage";
-import "../__mocks__/useAuthPrompt";
-import "../__mocks__/redux-persist";
-import "../__mocks__/react-navigation";
-import "../__mocks__/firebase-utils";
+import "./async-storage";
+import "./useAuthPrompt";
+import "./redux-persist";
+import "./react-navigation";
+import "./firebase-utils";
 jest
   .useFakeTimers({
     doNotFake: [
