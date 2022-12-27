@@ -8,8 +8,7 @@ export const userMock = {
   email: "any_email",
   techs: ["tech_1", "tech_2"],
 };
-export class AuthServiceStub implements AuthServiceType {
-  async authenticateGithub(credentials: AuthCredentialType): Promise<User | undefined> {
-    return userMock;
-  }
-}
+
+export const authServiceStub = {
+  authenticateGithub: jest.fn(async () => userMock),
+} as AuthServiceType;

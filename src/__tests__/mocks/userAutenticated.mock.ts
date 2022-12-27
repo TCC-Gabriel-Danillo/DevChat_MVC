@@ -1,4 +1,4 @@
-import { userMock } from "./authServiceStub";
+import { userMock } from "./authService.stub";
 
 export const userAutenticatedMock = {
   user: userMock,
