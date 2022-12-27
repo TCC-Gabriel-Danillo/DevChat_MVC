@@ -1,22 +1,29 @@
 import { waitFor } from "@testing-library/react-native";
-import React from "react";
 import { HomeScreen } from "_/view/screens";
-import { listenConversationsByUserIdMock } from "../mocks/conversationServiceStub";
-import { userAutenticatedMock } from "../mocks/userAutenticatedMock";
+import React from "react";
+
+import { conversationMock } from "../mocks/conversation.mock";
+import { conversationServiceStub } from "../mocks/conversationService.stub";
+import { userAutenticatedMock } from "../mocks/userAutenticated.mock";
 import { renderWithProviders } from "../utils/renderWithProvider";
 
 describe("HomeScreen", () => {
   it("Deve renderizar conversas que correspondam com a do usuário autenticado", async () => {
-    await waitFor(() => renderWithProviders(<HomeScreen />, { preloadedState: { auth: userAutenticatedMock } }));
+    const { store } = await waitFor(() =>
+      renderWithProviders(<HomeScreen />, { preloadedState: { auth: userAutenticatedMock } })
+    );
 
-    expect(listenConversationsByUserIdMock).toBeCalled();
-    expect(listenConversationsByUserIdMock).toBeCalledWith(userAutenticatedMock.user.id);
+    const { conversations } = store.getState().conversation;
+
+    expect(conversationServiceStub.listenConversationsByUserId).toBeCalled();
+    expect(conversations).toMatchObject([conversationMock]);
   });
 
-  it("Deve procurar renderizar conversas que correspondam com a do usuário autenticado", () => {
-    renderWithProviders(<HomeScreen />, { preloadedState: { auth: userAutenticatedMock } });
+  it("Deve retirar conversas da página quando desmontada", () => {
+    const { unmount } = renderWithProviders(<HomeScreen />, { preloadedState: { auth: userAutenticatedMock } });
 
-    expect(listenConversationsByUserIdMock).toBeCalled();
-    expect(listenConversationsByUserIdMock).toBeCalledWith(userAutenticatedMock.user.id);
+    unmount();
+
+    expect(conversationServiceStub.unlistenConversationsByUserId).toBeCalled();
   });
 });
