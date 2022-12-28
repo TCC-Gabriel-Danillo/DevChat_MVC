@@ -1,11 +1,13 @@
-import { UsersService, AuthService, ConversationService } from "_/services";
-import { MessageService } from "_/services/messageService";
+import { AuthServiceType } from "_/services/authService/types";
+import { ConversationServiceType } from "_/services/conversationService/types";
+import { MessageServiceType } from "_/services/messageService/types/MessageServiceType";
+import { UsersServiceType } from "_/services/usersService/types";
 
 export type ThunkArgs = {
-  conversationService: ConversationService;
-  authService: AuthService;
-  usersService: UsersService;
-  messageService: MessageService;
+  conversationService: ConversationServiceType;
+  authService: AuthServiceType;
+  usersService: UsersServiceType;
+  messageService: MessageServiceType;
 };
 
 export type MiddlewareOptions = {

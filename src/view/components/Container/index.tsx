@@ -1,10 +1,9 @@
-import { BaseComponent } from "_/view/types";
 import React, { ReactNode } from "react";
-import { View, ViewStyle } from "react-native";
+import { View, ViewProps, ViewStyle } from "react-native";
 
 import { styles } from "./styles";
 
-interface Props extends BaseComponent {
+interface Props extends ViewProps {
   children: ReactNode;
   style?: ViewStyle;
 }

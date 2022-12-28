@@ -6,9 +6,9 @@ import { OP, ORDER } from "_/repositories/DatabaseRepository/types";
 import { RealtimeDatabaseRepository } from "_/repositories/RealtimeDatabaseRepository";
 import { Conversation, FirebaseUser, User } from "_/types";
 
-import { FirebaseConversation } from "./types";
+import { ConversationServiceType, FirebaseConversation } from "./types";
 
-export class ConversationService {
+export class ConversationService implements ConversationServiceType {
   constructor(
     private readonly conversationDatabase: DatabaseRepository,
     private readonly userDatabaseRepository: DatabaseRepository,
