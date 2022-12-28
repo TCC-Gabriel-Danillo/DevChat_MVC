@@ -4,18 +4,17 @@ import {
   mapMessageToFirebaseMessage,
 } from "_/helpers/firebaseMessageHelper";
 import { mapFirebaseToUser } from "_/helpers/mapFirebaseToUser";
-import { DatabaseRepository, RealtimeDatabaseRepository } from "_/repositories";
-import { ORDER } from "_/repositories/DatabaseRepository/types";
-import { VoidCallback } from "_/repositories/RealtimeDatabaseRepository/types";
+import { DatabaseType, ORDER } from "_/repositories/DatabaseRepository/types";
+import { RealtimeDatabaseType, VoidCallback } from "_/repositories/RealtimeDatabaseRepository/types";
 import { FirebaseUser, Message, User } from "_/types";
 
 import { MessageServiceType } from "./types/MessageServiceType";
 
 export class MessageService implements MessageServiceType {
   constructor(
-    private readonly messageDatabaseRepository: DatabaseRepository,
-    private readonly messageRealtimeDatabaseRepository: RealtimeDatabaseRepository,
-    private readonly userDatabaseRepository: DatabaseRepository
+    private readonly messageDatabaseRepository: DatabaseType,
+    private readonly messageRealtimeDatabaseRepository: RealtimeDatabaseType,
+    private readonly userDatabaseRepository: DatabaseType
   ) {}
 
   setCollectionMessageDB(...collections: string[]) {

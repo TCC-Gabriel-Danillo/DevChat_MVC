@@ -1,12 +1,12 @@
+import { markAsRead, sendMessage } from "_/action/messageActions";
 import { MessagesScreen } from "_/view/screens/MessagesScreen";
 import React from "react";
 
-import { conversationMock } from "../mocks/conversation.mock";
-import { recivedMessageMock, sendedMessageMock } from "../mocks/message.mock";
-import { messageServiceStub } from "../mocks/messageService.stub";
-import { userAutenticatedMock } from "../mocks/userAutenticated.mock";
-import { renderWithProviders } from "../utils/renderWithProvider";
-import { markAsRead, sendMessage } from "_/action/messageActions";
+import { conversationMock } from "../../mocks/conversation.mock";
+import { recivedMessageMock, sendedMessageMock } from "../../mocks/message.mock";
+import { messageServiceStub } from "../../mocks/messageService.stub";
+import { userAutenticatedMock } from "../../mocks/userAutenticated.mock";
+import { renderWithProviders } from "../../utils/renderWithProvider";
 
 beforeEach(() => {
   jest.clearAllMocks();

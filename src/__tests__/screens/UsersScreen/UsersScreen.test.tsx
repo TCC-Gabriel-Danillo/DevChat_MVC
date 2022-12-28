@@ -3,11 +3,11 @@ import { TEST_ID } from "_/constants";
 import { UsersScreen } from "_/view/screens/UsersScreen";
 import React from "react";
 
-import { conversationMock } from "../mocks/conversation.mock";
-import { conversationServiceStub } from "../mocks/conversationService.stub";
-import { userAutenticatedMock } from "../mocks/userAutenticated.mock";
-import { mockedParticipant, usersServiceStub } from "../mocks/usersService.stub";
-import { renderWithProviders } from "../utils/renderWithProvider";
+import { conversationMock } from "../../mocks/conversation.mock";
+import { conversationServiceStub } from "../../mocks/conversationService.stub";
+import { userAutenticatedMock } from "../../mocks/userAutenticated.mock";
+import { mockedParticipant, usersServiceStub } from "../../mocks/usersService.stub";
+import { renderWithProviders } from "../../utils/renderWithProvider";
 
 beforeEach(() => {
   jest.clearAllMocks();

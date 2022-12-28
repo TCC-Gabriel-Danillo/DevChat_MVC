@@ -1,5 +1,5 @@
+import { logoutAction } from "_/action";
 import { ICONS, TEST_ID, COLORS } from "_/constants";
-import { removeUser } from "_/store/slices";
 import { useAppDispatch } from "_/view/hooks";
 import React from "react";
 
@@ -9,7 +9,7 @@ export function LogoutButton() {
   const dispatch = useAppDispatch();
 
   const logout = () => {
-    dispatch(removeUser());
+    dispatch(logoutAction());
   };
 
   return <IconButton testID={TEST_ID.LOGOUT} onPress={logout} icon={<ICONS.LOGOUT size={24} color={COLORS.WHITE} />} />;

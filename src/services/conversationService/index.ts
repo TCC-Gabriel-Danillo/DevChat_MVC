@@ -1,18 +1,17 @@
 import { mapConversationToFirebaseConversation } from "_/helpers/mapConversationToFirebaseConversation";
 import { mapFirebaseConversationToConversation } from "_/helpers/mapFirebaseConversationToConversation";
 import { mapFirebaseToUser } from "_/helpers/mapFirebaseToUser";
-import { DatabaseRepository } from "_/repositories/DatabaseRepository";
-import { OP, ORDER } from "_/repositories/DatabaseRepository/types";
-import { RealtimeDatabaseRepository } from "_/repositories/RealtimeDatabaseRepository";
+import { DatabaseType, OP, ORDER } from "_/repositories/DatabaseRepository/types";
+import { RealtimeDatabaseType } from "_/repositories/RealtimeDatabaseRepository/types";
 import { Conversation, FirebaseUser, User } from "_/types";
 
 import { ConversationServiceType, FirebaseConversation } from "./types";
 
 export class ConversationService implements ConversationServiceType {
   constructor(
-    private readonly conversationDatabase: DatabaseRepository,
-    private readonly userDatabaseRepository: DatabaseRepository,
-    private readonly conversationRealtimeDatabase: RealtimeDatabaseRepository
+    private readonly conversationDatabase: DatabaseType,
+    private readonly userDatabaseRepository: DatabaseType,
+    private readonly conversationRealtimeDatabase: RealtimeDatabaseType
   ) {}
 
   async updateConversationById(conversation: Conversation): Promise<void> {
