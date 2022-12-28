@@ -1,5 +1,4 @@
 import { AuthServiceType } from "_/services/authService/types";
-import { AuthCredentialType, User } from "_/types";
 
 export const userMock = {
   id: "any_id",

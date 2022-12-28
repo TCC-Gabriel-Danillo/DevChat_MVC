@@ -2,9 +2,9 @@ import { act, fireEvent } from "@testing-library/react-native";
 import { AuthScreen } from "_/view/screens";
 import React from "react";
 
-import { authServiceStub, userMock } from "../mocks/authService.stub";
-import { usersServiceStub } from "../mocks/usersService.stub";
-import { renderWithProviders } from "../utils/renderWithProvider";
+import { authServiceStub, userMock } from "../../mocks/authService.stub";
+import { usersServiceStub } from "../../mocks/usersService.stub";
+import { renderWithProviders } from "../../utils/renderWithProvider";
 
 beforeEach(() => {
   jest.clearAllMocks();
